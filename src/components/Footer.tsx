@@ -9,9 +9,28 @@ const Footer = () => {
       transition={{ duration: 0.5 }}
       className="border-t border-border-default"
     >
-      <div className="max-w-7xl mx-auto px-8 py-8 flex flex-col md:flex-row justify-between items-center gap-4">
-        <span className="text-sm text-text-muted">© Maya Chen</span>
-        <span className="text-sm text-text-muted">Made in California</span>
+      <div className="max-w-7xl mx-auto px-8 py-8 flex justify-center items-center">
+        <span className="text-sm text-text-muted">
+          © Copyright 2026 Arnau Barrera-Roy. Adapted from {" "}
+          <a
+            href="https://lovable.dev/templates/portfolio-resume/designer-portfolio/ivory-designer-portfolio-website-template"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="no-underline hover:text-foreground transition-colors duration-200"
+          >
+            Lovable's Ivory theme
+          </a>
+          . Hosted by{" "}
+          <a
+            href="https://pages.github.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="no-underline hover:text-foreground transition-colors duration-200"
+          >
+            GitHub Pages
+          </a>
+          .
+        </span>
       </div>
     </motion.footer>
   );

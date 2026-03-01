@@ -53,6 +53,7 @@ export default {
         "text-muted": "hsl(var(--text-muted))",
         "text-faded": "hsl(var(--text-faded))",
         "accent-green": "hsl(var(--accent-green))",
+        "accent-orange": "hsl(var(--accent-orange))",
         "surface-hover": "hsl(var(--surface-hover))",
         "surface-active": "hsl(var(--surface-active))",
         "border-subtle": "hsl(var(--border-subtle))",

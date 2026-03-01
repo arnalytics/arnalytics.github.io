@@ -1,7 +1,22 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const Navigation = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleContactClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (location.pathname === "/") {
+      const contactSection = document.getElementById("contact");
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      navigate("/#contact");
+    }
+  };
+
   return (
     <>
       {/* Top Left - Logo/Initials */}
@@ -11,41 +26,40 @@ const Navigation = () => {
         transition={{ duration: 0.6, delay: 0.2 }}
         className="fixed top-8 left-8 z-50"
       >
-        <Link 
-          to="/" 
-          className="text-sm font-medium text-accent-green hover:opacity-70 transition-opacity"
+        <Link
+          to="/"
+          className="text-sm font-medium text-accent-orange hover:opacity-70 transition-opacity"
         >
-          M—C
+          A—B
         </Link>
       </motion.div>
 
-      {/* Top Right - Work Link */}
+      {/* Top Right - News Link */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.3 }}
-        className="fixed top-8 right-8 z-50"
+        className="fixed top-8 right-8 z-50 flex flex-col items-end gap-2 md:flex-row md:items-center md:gap-8"
       >
-        <Link 
-          to="/#work" 
+        <Link
+          to="/publications"
           className="text-sm font-medium text-foreground hover:opacity-70 transition-opacity"
         >
-          Work
+          Publications
         </Link>
       </motion.div>
 
-      {/* Bottom Left - About Link */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.4 }}
         className="fixed bottom-8 left-8 z-50"
       >
-        <Link 
-          to="/#about" 
+        <Link
+          to="/news"
           className="text-sm font-medium text-foreground hover:opacity-70 transition-opacity"
         >
-          About
+          News
         </Link>
       </motion.div>
 
@@ -56,36 +70,13 @@ const Navigation = () => {
         transition={{ duration: 0.6, delay: 0.5 }}
         className="fixed bottom-8 right-8 z-50"
       >
-        <Link 
-          to="/#contact" 
-          className="text-sm font-medium text-foreground hover:opacity-70 transition-opacity"
+        <a
+          href="#contact"
+          onClick={handleContactClick}
+          className="text-sm font-medium text-foreground hover:opacity-70 transition-opacity cursor-pointer"
         >
           Contact
-        </Link>
-      </motion.div>
-
-      {/* Top Center - Circular Badge */}
-      <motion.div
-        initial={{ opacity: 0, rotate: -180 }}
-        animate={{ opacity: 1, rotate: 0 }}
-        transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-        className="fixed top-6 left-1/2 -translate-x-1/2 z-50"
-      >
-        <div className="relative w-16 h-16">
-          {/* Circular text */}
-          <svg viewBox="0 0 100 100" className="w-full h-full animate-spin" style={{ animationDuration: '20s' }}>
-            <path
-              id="circlePath"
-              d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0"
-              fill="none"
-            />
-            <text className="text-[11px] uppercase tracking-[0.2em] fill-foreground">
-              <textPath href="#circlePath">
-                CRAFTED BY MAYA CHEN × CRAFTED BY MAYA CHEN ×
-              </textPath>
-            </text>
-          </svg>
-        </div>
+        </a>
       </motion.div>
     </>
   );
