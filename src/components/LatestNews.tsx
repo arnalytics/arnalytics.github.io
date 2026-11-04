@@ -34,7 +34,7 @@ const LatestNews = () => {
                         }}
                     >
                         <Link
-                            to="/news"
+                            to={news.link ?? "/news"}
                             className="group flex flex-col md:flex-row items-baseline gap-4 md:gap-8 py-4 border-b border-foreground/5 hover:border-foreground/20 transition-colors duration-300 no-underline"
                         >
                             <span className="text-sm text-text-muted font-mono w-20 shrink-0 text-left">

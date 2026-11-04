@@ -36,7 +36,7 @@ const AboutMe = () => {
     };
 
     return (
-        <section id="about" className="w-full max-w-5xl mx-auto px-8 pb-32 lowercase">
+        <section id="about" className="w-full max-w-5xl mx-auto px-8 py-24 lowercase">
             <div className="flex flex-col md:flex-row gap-12 md:gap-16 items-center">
                 <div className="flex-1 w-full">
                     <motion.h3
@@ -57,7 +57,7 @@ const AboutMe = () => {
                             transition={{ duration: 0.5, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
                             className="text-lg md:text-xl leading-relaxed text-foreground/80"
                         >
-                            My name is <span className="text-foreground font-semibold">Arnau Barrera Roy</span>, and I am a first-year PhD student in Artificial Intelligence at the Human Pose and Behavior Analysis{" "}
+                            My name is <span className="text-foreground font-semibold">Arnau Barrera Roy</span>, and I am a PhD student in Artificial Intelligence at the Human Pose and Behavior Analysis{" "}
                             <a href="https://hupba.com/" target="_blank" rel="noopener noreferrer" className="hover:opacity-70 transition-opacity inline-block align-baseline">
                                 <img src="/hupba_logo.png" alt="HuPBA Logo" className="h-[1.2em] w-auto rounded-sm" />
                             </a>{" "}
@@ -78,7 +78,7 @@ const AboutMe = () => {
                             transition={{ duration: 0.5, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
                             className="text-lg md:text-xl leading-relaxed text-foreground/80"
                         >
-                            My research focuses on <strong className="text-foreground">Multimodal Knowledge Distillation</strong> of foundational vision-language models and <strong className="text-foreground">Action Valuation</strong> in team sports contexts.
+                            My research focuses on <strong className="text-foreground">Multimodal Knowledge Distillation</strong> of foundational vision-language models and on <strong className="text-foreground">video understanding for team sports</strong>: anticipating, spotting and valuing actions from broadcast video and tracking data.
                         </motion.p>
                     </div>
                 </div>
@@ -120,6 +120,8 @@ const AboutMe = () => {
                             <img
                                 src="/profile_image.jpeg"
                                 alt="Arnau Barrera Roy"
+                                width={320}
+                                height={320}
                                 className="w-full h-full object-cover"
                             />
                         </div>

@@ -23,7 +23,7 @@ const useHumanTypewriter = (text: string, minDelay = 30, maxDelay = 150, startDe
 
     // Heurística de pausa iterada sobre el grafema *anterior* para simular comportamiento humano
     const previouslyTypedChar = currentIndex > 0 ? graphemes[currentIndex - 1] : "";
-    const isPausePoint = /[\.\!\?\n]/.test(previouslyTypedChar);
+    const isPausePoint = /[.!?\n]/.test(previouslyTypedChar);
     const nextDelay = isPausePoint ? baseDelay + 300 : baseDelay;
 
     const delay = currentIndex === 0 ? startDelay : nextDelay;
@@ -79,6 +79,20 @@ const Hero = () => {
             />
           </span>
         </p>
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 8 }}
+        animate={isDone ? { opacity: 1, y: 0 } : { opacity: 0, y: 8 }}
+        transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+        className="-mt-4 flex flex-wrap justify-center gap-x-3 gap-y-1 text-xs md:text-sm font-mono text-text-muted lowercase"
+        aria-hidden={!isDone}
+      >
+        <span>phd student in ai</span>
+        <span className="text-text-faded">·</span>
+        <span>computer vision for sports</span>
+        <span className="text-text-faded">·</span>
+        <span>barcelona</span>
       </motion.div>
     </section>
   );

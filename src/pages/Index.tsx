@@ -1,34 +1,19 @@
-import { useEffect, useState, useCallback } from "react";
-import { useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import AboutMe from "@/components/AboutMe";
 import Experience from "@/components/Experience";
 import LatestNews from "@/components/LatestNews";
+import { SelectedPublications } from "@/components/Publications";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import ScrollIndicator from "@/components/ScrollIndicator";
+import { usePageMeta } from "@/hooks/use-page-meta";
 
 const Index = () => {
-  const { hash } = useLocation();
+  usePageMeta(undefined, "Arnau Barrera-Roy — PhD student in AI at the University of Barcelona and the Computer Vision Center, working on computer vision for sports and multimodal models.");
   const [showIndicator, setShowIndicator] = useState(false);
   const [hasScrolledDown, setHasScrolledDown] = useState(false);
-
-  useEffect(() => {
-    if (hash === "#contact") {
-      const contactSection = document.getElementById("contact");
-      if (contactSection) {
-        // Delay slightly to ensure content is rendered
-        setTimeout(() => {
-          contactSection.scrollIntoView({ behavior: "smooth" });
-        }, 100);
-      }
-    }
-  }, [hash]);
-
-  const resetTimer = useCallback(() => {
-    setShowIndicator(false);
-  }, []);
 
   useEffect(() => {
     if (hasScrolledDown) return;
@@ -85,10 +70,10 @@ const Index = () => {
   }, [hasScrolledDown]);
 
   return (
-    <main className="h-screen overflow-y-auto snap-y snap-mandatory bg-background">
+    <main className="h-[100svh] overflow-y-auto snap-y snap-proximity md:snap-mandatory bg-background">
       <Navigation />
       <ScrollIndicator isVisible={showIndicator} />
-      <div className="snap-start snap-always h-screen w-full">
+      <div className="snap-start snap-always h-[100svh] w-full">
         <Hero />
       </div>
       <div className="snap-start snap-always min-h-screen w-full flex items-center">
@@ -97,7 +82,10 @@ const Index = () => {
       <div className="snap-start snap-always min-h-screen w-full flex items-center">
         <Experience />
       </div>
-      <div className="snap-start snap-always min-h-screen w-full flex items-center">
+      <div className="snap-start snap-always min-h-screen w-full flex items-center py-24">
+        <SelectedPublications />
+      </div>
+      <div className="snap-start snap-always min-h-screen w-full flex items-center py-24">
         <LatestNews />
       </div>
       <div className="snap-start snap-always min-h-screen w-full flex flex-col">
